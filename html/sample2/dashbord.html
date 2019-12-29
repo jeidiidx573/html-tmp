@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="html5reset-1.6.1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <script src='https://unpkg.com/vue/dist/vue.js'></script>
+  <script src='https://unpkg.com/v-calendar@next'></script>
+</head>
+<body>
+<div id='app'>
+<header>
+  <div class="inner">
+    <div class="flexbox">
+      <h1 class="logo-img">
+        <a href="">画廊</a>
+      </h1>
+      <nav class="nav-global">
+        <ul class="flexbox">
+          <li><a href="">使い方</a></li>
+          <li><a href="">ログイン</a></li>
+          <li><a href=""><img src="200x200.png" alt="profile"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="menu">
+    <a href=""><div class="menu__item"><i class="fas fa-user"></i>マイページ</div></a>
+    <a href=""><div class="menu__item"><i class="fas fa-calendar"></i>カレンダー</div></a>
+    <a href=""><div class="menu__item"><i class="fas fa-cog"></i>設定</div></a>
+  </div>
+  <div class="mypage-box">
+    <img src="200x200.png" alt="profile">
+    <div class="profile">
+      <span>じぇいど</span>
+      <span>(<a href="#">@jeidiidx</a>)</span>
+      <span>指/煮寺/ddr/gitadora drum exchain@8900/fps/bf1/テクノ SP快便</span>
+    </div>
+  </div>
+  <div class="gallery-box">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+    <img src="200x200.png" alt="profile">
+  </div>
+  <!--div class="calendar">
+    <v-calendar title-position="center" is-dark style="width:auto; margin: 0px 20px">
+      <template slot='header-title' slot-scope='page'>
+        {{page.yearLabel}}年{{page.monthLabel}}
+      </template>
+      <template slot='day-content' slot-scope='props' class="day-content">
+        <div class="day-box">
+          <p class="day" :style="addStyleTextColor(props.day.weekday)">{{ props.day.day }}</p>
+          <img src="sample.jpg" class="thum"  @click="openDetail()">
+        </div>
+        <div class="share-box">
+          <div>
+            <a href="#" target="_blank"><img src="logo_twitter.png" class="icon"></a>
+            <a href="#" target="_blank"><img src="logo_retweet.png" class="icon"></a>
+            <a href="#" target="_blank"><img src="logo_fav.png" class="icon"></a>
+          </div>
+        </div>
+      </template>
+    </v-calendar>
+  </div-->
+</div>
+
+<footer>
+  <span>@jeidiidx</span>
+</footer>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      // Data used by the date picker
+      mode: 'single',
+      selectedDate: null,
+    },
+    methods:{
+      addStyleTextColor: function(weekday) {
+        if (weekday === 1) {
+          return {
+            color: "red"
+          };
+        } else if (weekday === 7) {
+          return {
+            color: "blue"
+          };
+        }
+      },
+      openDetail: function() {
+        console.log('ok');
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="html5reset-1.6.1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.min.css">
+  <script src='https://unpkg.com/vue/dist/vue.js'></script>
+  <script src='https://unpkg.com/v-calendar@next'></script>
+</head>
+<body>
+<div id='app'>
+<div class="dashbord">
+  <h1>Dashboard</h1>
+  <div class="calendar">
+    <v-calendar title-position="center" is-dark style="width:auto; margin: 0px 20px">
+      <template slot='header-title' slot-scope='page'>
+        {{page.yearLabel}}年{{page.monthLabel}}
+      </template>
+      <template slot='day-content' slot-scope='props' class="day-content">
+        <div class="day-box">
+          <p class="day" :style="addStyleTextColor(props.day.weekday)">{{ props.day.day }}</p>
+          <img src="sample.jpg" class="thum"  @click="openDetail()">
+        </div>
+        <div class="share-box">
+          <div>
+            <a href="#" target="_blank"><img src="logo_twitter.png" class="icon"></a>
+            <a href="#" target="_blank"><img src="logo_retweet.png" class="icon"></a>
+            <a href="#" target="_blank"><img src="logo_fav.png" class="icon"></a>
+          </div>
+        </div>
+      </template>
+    </v-calendar>
+  </div>
+</div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      // Data used by the date picker
+      mode: 'single',
+      selectedDate: null,
+    },
+    methods:{
+      addStyleTextColor: function(weekday) {
+        if (weekday === 1) {
+          return {
+            color: "red"
+          };
+        } else if (weekday === 7) {
+          return {
+            color: "blue"
+          };
+        }
+      },
+      openDetail: function() {
+        console.log('ok');
+      }
+    }
+  })
+</script>
+</body>
+</html>
